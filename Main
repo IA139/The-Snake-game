@@ -43,6 +43,10 @@ public class SnakeSection {
 
 
 public enum SnakeDirection {
+    UP,
+    RIGHT,
+    DOWN,
+    LEFT
 }
 
 import javax.swing.*;

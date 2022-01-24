@@ -13,3 +13,11 @@ public class Room {
 
 public class Mouse {
 }
+
+
+public class SnakeSection {
+}
+
+
+public enum SnakeDirection {
+}

@@ -136,11 +136,35 @@ public class Room {
         System.out.println("Game Over!");
     }
 
-    public void print() {
+public void print() {
         // Create an array where we will "draw" the current game state
         // Draw all the parts of the snake
         // Draw the mouse
         // Display it all on the screen
+        int[][] grid = new int[height][width];
+        for (SnakeSection s : snake.getSections()){
+            grid[s.getY()][s.getX()] = 1;
+        }
+
+        grid[snake.getY()][snake.getX()] = 2;
+        grid[mouse.getY()][mouse.getX()] = 3;
+
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                if (grid[i][j] == 1){
+                    sb.append("x");
+                } else if (grid[i][j] == 2){
+                    sb.append("X");
+                } else if (grid[i][j] == 3){
+                    sb.append("^");
+                } else {
+                    sb.append(".");
+                }
+            }
+            sb.append("\n");
+        }
+        System.out.println(sb.toString());
     }
 
     public void eatMouse() {

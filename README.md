@@ -1,1 +1,1 @@
-The Snake game I have developed
+#A game I have been developing while going through Codegym tasks; codegym.cc

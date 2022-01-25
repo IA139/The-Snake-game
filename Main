@@ -54,6 +54,7 @@ public class Room {
     private Mouse mouse;
     public static Room game;
 
+
     public int getWidth() {
         return width;
     }
@@ -92,9 +93,13 @@ public class Room {
         this.snake = snake;
     }
 
-    public void run(){}
+    public void run(){
 
-    public void print(){}
+    }
+
+    public void print(){
+
+    }
 
     public void createMouse(){
         int x = (int) (Math.random() * width);
@@ -105,12 +110,16 @@ public class Room {
     public void eatMouse(){
         createMouse();
     }
-    
+
+    public void sleep(){}
+
     public static void main(String[] args) {
         Snake snake = new Snake(0, 1);
         game = new Room(0, 1, snake);
         snake.setDirection(SnakeDirection.DOWN);
 
+        game.createMouse();
+        game.run();
     }
 }
 

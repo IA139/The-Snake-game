@@ -5,6 +5,8 @@ public class Snake {
     private boolean isAlive;
     private SnakeDirection direction;
 
+
+
     public List<SnakeSection> getSections() {
         return sections;
     }
@@ -23,6 +25,24 @@ public class Snake {
 
     public void setDirection(SnakeDirection newDirection){
         this.direction = newDirection;
+    }
+
+    public void move(){
+
+    }
+
+    public int getX() {
+        return this.sections.get(0).getX();
+    }
+
+    public int getY() {
+        return this.sections.get(0).getY();
+    }
+
+    public Snake(int x, int y){
+        sections = new ArrayList<>();
+        sections.add(new SnakeSection(x, y));
+        isAlive = true;
     }
 }
 

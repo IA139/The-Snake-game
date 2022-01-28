@@ -42,9 +42,7 @@ public class Snake {
         }
     }
 
-    public void move(int i, int j){
-
-    }
+    
 
     public int getX() {
         return this.sections.get(0).getX();
@@ -63,7 +61,24 @@ public class Snake {
             isAlive = false;
         }
     }
+    
+    public void move(int x, int y){
+        SnakeSection snak = new SnakeSection(sections.get(0).getX()+x,sections.get(0).getY()+y);
+        checkBorders(snak);
+        checkBody(snak);
 
+        if (isAlive){
+            if (snak.getY() >= Room.game.getHeight() || snak.getX() >= Room.game.getWidth()){
+            } else {
+                sections.add(0, snak);
+                sections.remove(sections.size() - 1);
+            }
+            if (snak.getY() == Room.game.getMouse().getY() || snak.getX() == Room.game.getWidth()){
+                Room.game.eatMouse();
+                sections.add(0, snak);
+            }
+        }
+    }
 
     public Snake(int x, int y){
         sections = new ArrayList<>();
